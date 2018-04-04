@@ -1,0 +1,25 @@
+############################################################
+#
+# Home Assistant - Sensors
+#
+############################################################
+
+- platform: wunderground
+  api_key: !secret wunderground_api_key
+  monitored_conditions:
+    - alerts
+    - temp_f
+    - UV
+    - wind_string
+    - weather
+    - weather_1h
+    - weather_1d
+
+- platform: worldclock
+  time_zone: Etc/UTC
+  name: Zulu Time
+  
+#- platform: google_travel_time
+#  api_key: !secret google_time_travel_api_key
+#  origin: !secret home_address
+#  destination: !secret work_address

@@ -1,0 +1,11 @@
+############################################################
+#
+# Home Assistant - Device Trackers
+#
+############################################################
+
+- platform: tomato
+  host: !secret tomato_host 
+  username: !secret tomato_username 
+  password: !secret tomato_password 
+  http_id: !secret tomato_http_id 

@@ -1,0 +1,11 @@
+############################################################
+#
+# Home Assistant - Zones
+#
+############################################################
+
+- name: Work
+  latitude: !secret work_lat
+  longitude: !secret work_lon
+  radius: 250
+  icon: mdi:briefcase

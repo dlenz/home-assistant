@@ -1,0 +1,29 @@
+############################################################
+#
+# Home Assistant - Groups - 1545 House
+#
+############################################################
+
+house:
+  view: yes
+  icon: mdi:home
+  entities:
+    - group.climate
+    - group.trackeddevices
+
+  climate:
+    name: Climate
+    view: no
+    entities:
+      - sensor.north_nest_thermostat_temperature
+      - sensor.south_nest_thermostat_temperature
+      - sensor.north_nest_thermostat_humidity
+      - sensor.south_nest_thermostat_humidity
+      - climate.north_nest
+      - climate.south_nest
+
+  trackeddevices:
+    name: Devices
+    view: no
+    entities:
+      - device_tracker.daves_iphone
