@@ -1,0 +1,167 @@
+homeassistant:
+  name: Home
+  latitude: !secret home_lat
+  longitude: !secret home_lon
+  elevation: !secret home_ele
+  unit_system: imperial
+  time_zone: America/New_York
+  # Customization file
+  customize: !include customize.yaml
+
+zone:
+  name: Work
+  latitude: !secret work_lat
+  longitude: !secret work_lon
+  radius: 250
+  icon: mdi:worker
+
+# Show links to resources in log and frontend
+# introduction:
+
+# Enables the frontend
+frontend:
+
+# Enables configuration UI
+config:
+
+http:
+  # Secrets are defined in the file secrets.yaml
+  api_password: !secret http_password
+  # Uncomment this if you are using SSL/TLS, running in Docker container, etc.
+  trusted_networks:
+    - 127.0.0.1
+  #  - 192.168.1.0/24
+  ip_ban_enabled: true
+  login_attempts_threshold: 5
+  base_url: !secret http_url
+  use_x_forwarded_for: true
+
+ios:
+
+device_tracker:
+- platform: tomato
+  host: !secret tomato_host 
+  username: !secret tomato_username 
+  password: !secret tomato_password 
+  http_id: !secret tomato_http_id 
+
+# Checks for available updates
+# Note: This component will send some information about your system to
+# the developers to assist with development of Home Assistant.
+# For more information, please see:
+# https://home-assistant.io/blog/2016/10/25/explaining-the-updater/
+updater:
+  # Optional, allows Home Assistant developers to focus on popular components.
+  # include_used_components: true
+
+# Discover some devices automatically
+discovery:
+
+# Allows you to issue voice commands from the frontend in enabled browsers
+conversation:
+
+# Enables support for tracking state changes over time
+history:
+
+# View all events in a logbook
+logbook:
+
+# Enables a map showing the location of tracked devices
+map:
+
+# Track the sun
+sun:
+
+# Weather prediction
+sensor:
+  - platform: wunderground
+    api_key: !secret wunderground_api_key
+    monitored_conditions:
+      - alerts
+      - temp_f
+      - UV
+      - wind_string
+      - weather
+      - weather_1h
+      - weather_1d
+
+  - platform: worldclock
+    time_zone: Etc/UTC
+    name: Zulu Time
+
+# Text to speech
+tts:
+  - platform: google
+
+# Cloud
+cloud:
+
+#group: !include groups.yaml
+#automation: !include automations.yaml
+#script: !include scripts.yaml
+
+google:
+  client_id: !secret google_api_client_id
+  client_secret: !secret google_api_client_secret
+
+nest:
+  client_id: !secret nest_client_id
+  client_secret: !secret nest_client_secret
+
+arlo:
+  username: !secret arlo_username
+  password: !secret arlo_password
+
+alarm_control_panel:
+  - platform: arlo
+
+camera:
+  - platform: arlo
+    ffmpeg_arguments: '-pred 1 -q:v 2'
+
+  - platform: generic
+    name: South Beach Cam
+    still_image_url: http://video-monitoring.com/beachcams/boca/pics/s4/mar3018m/a031446k.jpg
+
+  - platform: generic
+    name: MIA Radar
+    still_image_url: https://radblast.wunderground.com/cgi-bin/radar/WUNIDS_map?station=AMX&brand=wui&num=1&delay=15&type=N0R&frame=0&scale=0.5&noclutter=0&showstorms=0&mapx=400&mapy=240&centerx=329.49999999999994&centery=408&transx=-70.50000000000006&transy=168&showlabels=1&severe=0&rainsnow=0&lightning=1&smooth=1&rand=25379716&lat=0&lon=0&label=you
+
+group:
+  default_view:
+    view: yes
+    icon: mdi:home
+    entities:
+      - group.daily_forecast
+      - group.climate
+      - group.zulu_time
+      - group.trackeddevices
+  daily_forecast:
+    name: Weather
+    view: no
+    entities:
+      - camera.mia_radar
+      - camera.south_beach_cam
+      - sensor.pws_alerts
+      - sensor.pws_temp_f
+      - sensor.pws_UV
+      - sensor.pws_wind_string
+      - sensor.pws_weather
+      - sensor.pws_weather_1h
+      - sensor.pws_weather_1d
+  climate:
+    name: Climate
+    view: no
+    entities:
+      - climate.north_nest
+      - climate.south_nest
+  zulu_time:
+    name: Zulu Time
+    view: no
+    entities:
+      - sensor.zulu_time
+  trackeddevices:
+    name: Devices
+    view: no
+    entities:
+      - device_tracker.daves_iphone

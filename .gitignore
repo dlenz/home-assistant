@@ -23,7 +23,6 @@ pyozw.sqlite
 ip_bans.yaml
 .*
 !/.gitignore
-config
 ozw_config
 .AppleDouble
 google_calendars.yaml

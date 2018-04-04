@@ -1,0 +1,7 @@
+alarm_control_panel.1545_base_station:
+  friendly_name: 1545 Base Station
+  icon: mdi:security
+sun.sun:
+  icon: mdi:sun
+device_tracker.daves_iphone:
+  friendly_name: Daves iPhone
