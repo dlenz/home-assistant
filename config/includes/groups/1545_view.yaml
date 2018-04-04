@@ -11,19 +11,19 @@ house:
     - group.climate
     - group.trackeddevices
 
-  climate:
-    name: Climate
-    view: no
-    entities:
-      - sensor.north_nest_thermostat_temperature
-      - sensor.south_nest_thermostat_temperature
-      - sensor.north_nest_thermostat_humidity
-      - sensor.south_nest_thermostat_humidity
-      - climate.north_nest
-      - climate.south_nest
+climate:
+  name: Climate
+  view: no
+  entities:
+    - sensor.north_nest_thermostat_temperature
+    - sensor.south_nest_thermostat_temperature
+    - sensor.north_nest_thermostat_humidity
+    - sensor.south_nest_thermostat_humidity
+    - climate.north_nest
+    - climate.south_nest
 
-  trackeddevices:
-    name: Devices
-    view: no
-    entities:
-      - device_tracker.daves_iphone
+trackeddevices:
+  name: Devices
+  view: no
+  entities:
+    - device_tracker.daves_iphone
