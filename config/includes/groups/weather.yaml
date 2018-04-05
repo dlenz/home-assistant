@@ -1,0 +1,39 @@
+############################################################
+#
+# Home Assistant - Groups - Weather
+#
+############################################################
+
+weather:
+  view: yes
+  icon: mdi:weather-cloudy
+  entities:
+    - group.darksky_weather
+darksky_weather:
+  name: DarkSky Weather
+  view: no
+  entities:
+    - sensor.dark_sky_summary
+    - sensor.dark_sky_precip_type
+    - sensor.dark_sky_precip_intensity
+    - sensor.dark_sky_precip_probability
+    - sensor.dark_sky_precip_accumulation
+    - sensor.dark_sky_temperature
+    - sensor.dark_sky_apparent_temperature
+    - sensor.dark_sky_dew_point
+    - sensor.dark_sky_wind_speed
+    - sensor.dark_sky_wind_bearing
+    - sensor.dark_sky_cloud_cover
+    - sensor.dark_sky_humidity
+    - sensor.dark_sky_pressure
+    - sensor.dark_sky_visibility
+    - sensor.dark_sky_ozone
+    - sensor.dark_sky_minutely_summary
+    - sensor.dark_sky_hourly_summary
+    - sensor.dark_sky_daily_summary
+    - sensor.dark_sky_temperature_max
+    - sensor.dark_sky_temperature_min
+    - sensor.dark_sky_apparent_temperature_max
+    - sensor.dark_sky_apparent_temperature_min
+    - sensor.dark_sky_precip_intensity_max
+    - sensor.dark_sky_uv_index
