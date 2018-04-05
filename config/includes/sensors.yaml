@@ -4,6 +4,43 @@
 #
 ############################################################
 
+- platform: darksky
+  api_key: !secret darksky_api_key
+  monitored_conditions:
+    - summary
+    - precip_type
+    - precip_intensity
+    - precip_probability
+    - precip_accumulation
+    - temperature
+    - apparent_temperature
+    - dew_point
+    - wind_speed
+    - wind_bearing
+    - cloud_cover
+    - humidity
+    - pressure
+    - visibility
+    - ozone
+    - minutely_summary
+    - hourly_summary
+    - daily_summary
+    - temperature_max
+    - temperature_min
+    - apparent_temperature_max
+    - apparent_temperature_min
+    - precip_intensity_max
+    - uv_index
+
+#- platform: google_travel_time
+#  api_key: !secret google_time_travel_api_key
+#  origin: !secret home_address
+#  destination: !secret work_address
+
+- platform: worldclock
+  time_zone: Etc/UTC
+  name: Zulu Time
+  
 - platform: wunderground
   api_key: !secret wunderground_api_key
   monitored_conditions:
@@ -14,12 +51,3 @@
     - weather
     - weather_1h
     - weather_1d
-
-- platform: worldclock
-  time_zone: Etc/UTC
-  name: Zulu Time
-  
-#- platform: google_travel_time
-#  api_key: !secret google_time_travel_api_key
-#  origin: !secret home_address
-#  destination: !secret work_address
