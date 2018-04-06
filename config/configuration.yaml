@@ -31,7 +31,7 @@ config:
 conversation:
 discovery:
 frontend:
-  javascript_version: latest
+  javascript_version: es5 
 history:
   exclude:
     domains:
