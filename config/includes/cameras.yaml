@@ -7,9 +7,9 @@
 - platform: arlo
   ffmpeg_arguments: '-pred 1 -q:v 2'
 
-- platform: generic
+- platform: local_file
   name: South Beach Cam
-  still_image_url: http://video-monitoring.com/beachcams/boca/pics/s4/mar3018m/a031446k.jpg
+  file_path: /tmp/south_beach_latest.jpg 
 
 - platform: generic
   name: MIA Radar

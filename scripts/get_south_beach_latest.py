@@ -1,6 +1,9 @@
+#!/usr/bin/python3
+
 import urllib3
 import json
 import requests
+import os
 
 http = urllib3.PoolManager()
 
@@ -10,7 +13,7 @@ base_url = 'http://video-monitoring.com/beachcams/boca/'
 img_url = latest['s4']['hr']
 complete_url = base_url + img_url
 
-with open('south_beach_latest.jpg', 'wb') as handle:
+with open('/tmp/south_beach_latest.jpg', 'wb') as handle:
         response = requests.get(complete_url, stream=True)
 
         if not response.ok:
