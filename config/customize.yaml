@@ -1,3 +1,13 @@
+# Define the order of the groups
+group.default_view:
+  order: 1
+group.house:
+  order: 2
+group.weather:
+  order: 3
+group.security:
+  order: 4
+
 alarm_control_panel.1545_base_station:
   friendly_name: 1545 Base Station
   icon: mdi:security

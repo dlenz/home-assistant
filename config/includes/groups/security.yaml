@@ -1,0 +1,20 @@
+############################################################
+#
+# Home Assistant - Groups - Security
+#
+############################################################
+
+security:
+  view: yes
+  icon: mdi:cctv
+  entities:
+    - group.cameras
+cameras:
+  name: Cameras
+  view: no
+  entities:
+    - camera.front_door
+    - camera.pool
+    - camera.dogcam
+    - camera.park
+    - camera.garage

@@ -8,21 +8,7 @@ default_view:
   view: yes
   icon: mdi:home-assistant
   entities:
-    - group.daily_forecast
     - group.zulu_time
-daily_forecast:
-  name: Weather
-  view: no
-  entities:
-    - sensor.pws_alerts
-    - sensor.pws_temp_f
-    - sensor.pws_UV
-    - sensor.pws_wind_string
-    - sensor.pws_weather
-    - sensor.pws_weather_1h
-    - sensor.pws_weather_1d
-    - camera.mia_radar
-    - camera.south_beach_cam
 zulu_time:
   name: Zulu Time
   view: no

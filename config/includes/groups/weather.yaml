@@ -37,3 +37,12 @@ darksky_weather:
     - sensor.dark_sky_apparent_temperature_min
     - sensor.dark_sky_precip_intensity_max
     - sensor.dark_sky_uv_index
+    - sensor.pws_alerts
+    - sensor.pws_temp_f
+    - sensor.pws_UV
+    - sensor.pws_wind_string
+    - sensor.pws_weather
+    - sensor.pws_weather_1h
+    - sensor.pws_weather_1d
+    - camera.mia_radar
+    - camera.south_beach_cam

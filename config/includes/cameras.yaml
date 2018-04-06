@@ -7,6 +7,8 @@
 - platform: arlo
   ffmpeg_arguments: '-pred 1 -q:v 2'
 
+- platform: zoneminder
+
 - platform: local_file
   name: South Beach Cam
   file_path: /tmp/south_beach_latest.jpg 

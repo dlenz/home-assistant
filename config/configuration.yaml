@@ -80,7 +80,14 @@ nest:
 
 tts:
   - platform: google
-  
+
+zoneminder:
+  host: !secret zm_host
+  path: !secret zm_path
+  path_zms: !secret zm_path_zms
+  ssl: false
+  username: !secret zm_user
+  password: !secret zm_pass
 ####################################################
 #                                                  #
 #                     Includes             #
