@@ -8,11 +8,12 @@ house:
   view: yes
   icon: mdi:home
   entities:
-    - group.climate
+    - group.1545_climate
+    - group.489_climate
     - group.trackeddevices
 
-climate:
-  name: Climate
+1545_climate:
+  name: 1545 Climate
   view: no
   entities:
     - sensor.north_nest_thermostat_temperature
@@ -21,6 +22,14 @@ climate:
     - sensor.south_nest_thermostat_humidity
     - climate.north_nest
     - climate.south_nest
+
+489_climate:
+  name: 489 Climate
+  view: no
+  entities:
+    - sensor.kingsbridge_thermostat_temperature
+    - sensor.kingsbridge_thermostat_humidity
+    - climate.kingsbridge
 
 trackeddevices:
   name: Devices
