@@ -1,0 +1,10 @@
+489_motion_deteted:
+  name: Motion has been detected
+  done_message: Motion has been acknolwedged
+  entity_id: binary_sensor.south_nest_away_mode
+  state: 'off'
+  repeat: 1
+  can_acknowledge: True
+  skip_first: True
+  notifiers:
+    - daves_iphone
