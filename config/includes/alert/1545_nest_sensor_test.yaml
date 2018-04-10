@@ -1,8 +1,8 @@
-489_motion_deteted:
+489_motion_detected:
   name: Motion has been detected
   done_message: Motion has been acknolwedged
-  entity_id: binary_sensor.south_nest_away_mode
-  state: 'off'
+  entity_id: sensor.north_nest_away_mode
+  state: 'True'
   repeat: 1
   can_acknowledge: True
   skip_first: True

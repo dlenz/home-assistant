@@ -29,7 +29,7 @@ house:
   entities:
     - sensor.kingsbridge_thermostat_temperature
     - sensor.kingsbridge_thermostat_humidity
-    - climate.kingsbridge
+    - climate.living_room
 
 trackeddevices:
   name: Devices

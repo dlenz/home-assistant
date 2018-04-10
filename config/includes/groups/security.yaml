@@ -13,6 +13,7 @@ cameras:
   name: Cameras
   view: no
   entities:
+    - alarm_control_panel.1545_base_station
     - camera.front_door
     - camera.pool
     - camera.dogcam
