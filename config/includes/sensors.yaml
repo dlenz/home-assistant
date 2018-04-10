@@ -32,6 +32,24 @@
     - precip_intensity_max
     - uv_index
 
+- platform: nest
+  monitored_conditions:
+    - humidity
+    - operation_mode
+    - temperature
+    - target
+    - hvac_state
+
+# Template to 
+- platform: template
+  sensors:
+    kingsbridge_away_mode:
+      value_template: "{{ is_state_attr('climate.kingsbridge', 'away_mode', 'on') }}"
+    north_nest_away_mode:
+      value_template: "{{ is_state_attr('climate.north_nest', 'away_mode', 'on') }}"
+    south_nest_away_mode:
+      value_template: "{{ is_state_attr('climate.south_nest', 'away_mode', 'on') }}"
+
 #- platform: google_travel_time
 #  api_key: !secret google_time_travel_api_key
 #  origin: !secret home_address
@@ -51,3 +69,53 @@
     - weather
     - weather_1h
     - weather_1d
+
+####################################################
+#                                                  #
+#              HOME ASSISTANT UPTIME               #
+#                                                  #
+####################################################
+
+# https://home-assistant.io/components/sensor.command_line/
+- platform: command_line
+  name: "HA Uptime"
+  command: echo "$(($(date +%s) - $(date -d "$(head -n1 /home/ha/.homeassistant/home-assistant.log | cut -d' ' -f-2)" +%s)))"
+  scan_interval: 720
+  value_template: >-
+    {% set uptime = value | int %}
+    {% set seconds = uptime % 60 %}
+    {% set minutes = ((uptime % 3600) / 60) | int %}
+    {% set hours = ((uptime % 86400) / 3600) | int %}
+    {% set days = (uptime / 86400) | int %}
+    {%- if days > 0 -%}
+      {%- if days == 1 -%}
+        1 day
+      {%- else -%}
+        {{ days }} days
+      {%- endif -%}
+      {{ ', ' }}
+    {%- endif -%}
+    {{ '%02d' % hours }}:{{ '%02d' % minutes }}
+
+####################################################
+#                                                  #
+#          INTERNET PERFORMANCE METRICS            #
+#                                                  #
+####################################################
+
+# https://home-assistant.io/components/sensor.speedtest/
+- platform: speedtest
+  server_id: 1776
+  monitored_conditions:
+    - download
+    - upload
+    - ping
+  hour:
+    - 0
+    - 3
+    - 6
+    - 9
+    - 12
+    - 15
+    - 18
+    - 21

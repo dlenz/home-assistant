@@ -4,17 +4,10 @@
 #
 ############################################################
 
-# Convert Away Mode attribute to binary for ease of use in automation
-- platform: template
-  sensors:
-    living_room_away_mode:
-      friendly_name: "489 Thermostat Away Mode"
-      value_template: "{{ is_state_attr('climate.living_room', 'away_mode', 'off') }}"
-
-    north_nest_away_mode:
-      friendly_name: "North Nest Thermostat Away Mode"
-      value_template: "{{ is_state_attr('climate.north_nest', 'away_mode', 'off') }}"
-
-    south_nest_away_mode:
-      friendly_name: "South Nest Thermostat Away Mode"
-      value_template: "{{ is_state_attr('climate.south_nest', 'away_mode', 'off') }}"
+- platform: nest
+  monitored_conditions:
+    - online
+    - fan
+    - is_using_emergency_heat
+    - is_locked
+    - has_leaf
