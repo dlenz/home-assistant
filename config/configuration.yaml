@@ -29,7 +29,8 @@ http:
 
 config:
 conversation:
-discovery:
+# Disable automatic discovery
+#discovery:
 frontend:
   javascript_version: es5 
 history:
