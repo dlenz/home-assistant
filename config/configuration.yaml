@@ -75,6 +75,13 @@ influxdb:
   #include:
   #  - sensors
 
+mqtt:
+  broker: 192.168.1.70
+  port: 1883
+  client_id: home-assistant
+  username: mqtt
+  password: !secret mqtt_password
+
 nest:
   client_id: !secret nest_client_id
   client_secret: !secret nest_client_secret
