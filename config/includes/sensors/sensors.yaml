@@ -40,6 +40,14 @@
     - target
     - hvac_state
 
+- platform: sql
+  db_url: mysql://hauser:hapass@mysql.home/ha
+  queries:
+    - name: HA DB size
+      query: 'SELECT table_schema "database", Round(((Sum(data_length + index_length) / 1024) / 1024), 1) "value" FROM information_schema.tables WHERE table_schema="ha" GROUP BY table_schema;'
+      column: 'value'
+      unit_of_measurement: kB
+
 # Template to 
 - platform: template
   sensors:
@@ -105,17 +113,10 @@
 
 # https://home-assistant.io/components/sensor.speedtest/
 - platform: speedtest
-  server_id: 1776
+  server_id: 6214
   monitored_conditions:
     - download
     - upload
     - ping
   hour:
-    - 0
     - 3
-    - 6
-    - 9
-    - 12
-    - 15
-    - 18
-    - 21

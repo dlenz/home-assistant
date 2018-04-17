@@ -99,6 +99,7 @@ zoneminder:
   ssl: false
   username: !secret zm_user
   password: !secret zm_pass
+
 ####################################################
 #                                                  #
 #                     Includes             #
@@ -108,7 +109,7 @@ zoneminder:
 device_tracker: !include includes/device_trackers.yaml
 camera: !include includes/cameras.yaml
 group: !include_dir_merge_named includes/groups
-sensor: !include includes/sensors.yaml
+sensor: !include_dir_merge_named includes/sensors
 binary_sensor: !include includes/binary_sensors.yaml
 zone: !include includes/zones.yaml
 automation: !include_dir_merge_named includes/automation
