@@ -13,7 +13,7 @@ base_url = 'http://video-monitoring.com/beachcams/boca/'
 img_url = latest['s4']['hr']
 complete_url = base_url + img_url
 
-with open('/tmp/south_beach_latest.jpg', 'wb') as handle:
+with open('/home/rosie/docker/volumes/home-assistant-config/config/www/pictures/south_beach_latest.jpg', 'wb') as handle:
         response = requests.get(complete_url, stream=True)
 
         if not response.ok:

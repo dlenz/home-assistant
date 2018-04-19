@@ -1,0 +1,21 @@
+- alias: KingsbridgeTooHot
+  trigger:
+    platform: numeric_state
+    entity_id: sensor.489_climate_kingsbridge_ambient_temp
+    above: 80
+  action:
+    service: notify.mypushbullet
+    data_template:
+      title: "Kingsbridge Temp Alert (Hot)"
+      message: "The temperature at Kingsbridge is currently {{ sensor.489_climate_kingsbridge_ambient_temp }} °F"
+
+- alias: KingsbridgeTooCold
+  trigger:
+    platform: numeric_state
+    entity_id: sensor.489_climate_kingsbridge_ambient_temp
+    below: 70
+  action:
+    service: notify.mypushbullet
+    data_template:
+      title: "Kingsbridge Temp Alert (Cold)"
+      message: "The temperature at Kingsbridge is currently {{ sensor.489_climate_kingsbridge_ambient_temp }} °F"

@@ -11,7 +11,7 @@
 
 - platform: local_file
   name: South Beach Cam
-  file_path: /tmp/south_beach_latest.jpg 
+  file_path: /local/pictures/south_beach_latest.jpg
 
 - platform: generic
   name: MIA Radar

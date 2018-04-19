@@ -1,0 +1,34 @@
+############################################################
+#
+# Home Assistant - Groups - Climate
+#
+############################################################
+
+weather:
+  view: yes
+  icon: mdi:weather-cloudy
+  entities:
+    - group.weather_card_forecast
+    - group.1545_climate
+    - group.489_climate
+    - camera.mia_radar
+    - camera.south_beach_cam
+
+1545_climate:
+  name: 1545 Climate
+  view: no
+  entities:
+    - sensor.north_nest_thermostat_temperature
+    - sensor.south_nest_thermostat_temperature
+    - sensor.north_nest_thermostat_humidity
+    - sensor.south_nest_thermostat_humidity
+    - climate.north_nest
+    - climate.south_nest
+
+489_climate:
+  name: 489 Climate
+  view: no
+  entities:
+    - sensor.kingsbridge_thermostat_temperature
+    - sensor.kingsbridge_thermostat_humidity
+    - climate.living_room

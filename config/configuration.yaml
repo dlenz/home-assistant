@@ -82,9 +82,16 @@ mqtt:
   username: mqtt
   password: !secret mqtt_password
 
+notify:
+  - platform: pushbullet
+    name: dave
+    api_key: o.RYYkthjdIsXO2mqvJFCapNAeihuBkfAj
+
 nest:
   client_id: !secret nest_client_id
   client_secret: !secret nest_client_secret
+
+python_script:
 
 recorder:
   db_url: mysql://hauser:hapass@mysql.home/ha
@@ -114,3 +121,4 @@ binary_sensor: !include_dir_merge_list includes/binary_sensors
 zone: !include includes/zones.yaml
 automation: !include_dir_merge_named includes/automation
 alert: !include_dir_merge_named includes/alert
+packages: !include_dir_named includes/packages
