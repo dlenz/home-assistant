@@ -11,8 +11,7 @@ weather:
     - group.weather_card_forecast
     - group.1545_climate
     - group.489_climate
-    - camera.mia_radar
-    - camera.south_beach_cam
+    - group.climate_cameras
 
 1545_climate:
   name: 1545 Climate
@@ -32,3 +31,7 @@ weather:
     - sensor.kingsbridge_thermostat_temperature
     - sensor.kingsbridge_thermostat_humidity
     - climate.living_room
+
+climate_cameras:
+    - camera.mia_radar
+    - camera.south_beach_cam
