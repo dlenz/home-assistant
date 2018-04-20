@@ -114,11 +114,12 @@ zoneminder:
 #                                                  #
 ####################################################
 
-device_tracker: !include includes/device_trackers.yaml
-camera: !include includes/cameras.yaml
-group: !include_dir_merge_named includes/groups
-sensor: !include_dir_merge_list includes/sensors
-binary_sensor: !include_dir_merge_list includes/binary_sensors
-zone: !include includes/zones.yaml
-automation: !include_dir_merge_named includes/automation
 alert: !include_dir_merge_named includes/alert
+automation: !include_dir_merge_named includes/automation
+binary_sensor: !include_dir_merge_list includes/binary_sensors
+camera: !include includes/cameras.yaml
+device_tracker: !include includes/device_trackers.yaml
+group: !include_dir_merge_named includes/groups
+panel_iframe: !include includes/panel_iframe.yaml
+sensor: !include_dir_merge_list includes/sensors
+zone: !include includes/zones.yaml

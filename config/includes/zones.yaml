@@ -4,8 +4,23 @@
 #
 ############################################################
 
+- name: Home
+  latitude: !secret home_lat
+  longitude: !secret home_lon
+  radius: 100
+  icon: mdi:castle
 - name: Work
   latitude: !secret work_lat
   longitude: !secret work_lon
   radius: 250
   icon: mdi:briefcase
+#- name: Parents
+#  latitude: !secret drent_lat
+#  longitude: !secret drent_lon
+#  radius: 100
+#  icon: mdi:human-male-female
+- name: Airport
+  latitude: 26.385146
+  longitude: -80.102999
+  radius: 250
+  icon: mdi:airport
