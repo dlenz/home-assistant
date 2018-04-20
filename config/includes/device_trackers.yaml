@@ -5,7 +5,9 @@
 ############################################################
 
 - platform: tomato
-  host: !secret tomato_host 
+  host: !secret tomato_host
+  port: !secret tomato_port
   username: !secret tomato_username 
   password: !secret tomato_password 
-  http_id: !secret tomato_http_id 
+  http_id: !secret tomato_http_id
+  track_new_devices: no

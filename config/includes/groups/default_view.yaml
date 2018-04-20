@@ -9,9 +9,20 @@ default_view:
   icon: mdi:home-assistant
   entities:
     - device_tracker.daves_iphone
+    - device_tracker.tatis_android
+    - device_tracker.stella
+    - device_tracker.fluffy
+    - device_tracker.maritzas_iphone
     - group.zulu_time
+    - group.arlo_base_station
+
 zulu_time:
   name: Zulu Time
   view: no
   entities:
     - sensor.zulu_time
+arlo_base_station:
+  name: Arlo
+  view: no
+  entities:
+    - alarm_control_panel.1545_base_station

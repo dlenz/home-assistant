@@ -4,7 +4,7 @@
 #
 ############################################################
 
-weather:
+climate:
   view: yes
   icon: mdi:weather-cloudy
   entities:
@@ -18,8 +18,8 @@ weather:
   view: no
   entities:
     - sensor.north_nest_thermostat_temperature
-    - sensor.south_nest_thermostat_temperature
     - sensor.north_nest_thermostat_humidity
+    - sensor.south_nest_thermostat_temperature
     - sensor.south_nest_thermostat_humidity
     - climate.north_nest
     - climate.south_nest
