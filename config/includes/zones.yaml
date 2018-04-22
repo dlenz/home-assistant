@@ -9,18 +9,23 @@
   longitude: !secret home_lon
   radius: 100
   icon: mdi:castle
+- name: 489
+  latitude: !secret 489_lat
+  longitude: !secret 489_lon
+  radius: 100
+  icon: mdi:home-currency-usd
 - name: Work
   latitude: !secret work_lat
   longitude: !secret work_lon
-  radius: 250
+  radius: 100
   icon: mdi:briefcase
-#- name: Parents
-#  latitude: !secret drent_lat
-#  longitude: !secret drent_lon
-#  radius: 100
-#  icon: mdi:human-male-female
-- name: Airport
-  latitude: 26.385146
-  longitude: -80.102999
-  radius: 250
+- name: Parents
+  latitude: !secret drents_lat
+  longitude: !secret drents_lon
+  radius: 100
+  icon: mdi:human-male-female
+- name: KBCT
+  latitude: !secret kbct_lat
+  longitude: !secret kbct_lon
+  radius: 100
   icon: mdi:airport
