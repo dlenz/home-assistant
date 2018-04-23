@@ -55,7 +55,7 @@
 - platform: mqtt
   name: KBCT_metar_sky_cover
   state_topic: "sensors/KBCT/metar"
-  unit_of_measurement: 'text'
+  #unit_of_measurement: 'text'
   value_template: '{{value_json["sky_condition"][0]["$"]["sky_cover"]}}'
   
 - platform: mqtt
