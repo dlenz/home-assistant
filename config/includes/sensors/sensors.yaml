@@ -67,7 +67,15 @@
 - platform: worldclock
   time_zone: Etc/UTC
   name: Zulu Time
-  
+
+- platform: worldclock
+  time_zone: America/New_York
+  name: EST Time
+
+- platform: worldclock
+  time_zone: America/Los_Angeles
+  name: PST Time
+
 - platform: wunderground
   api_key: !secret wunderground_api_key
   monitored_conditions:
