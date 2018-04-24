@@ -30,6 +30,8 @@ kbct_metar:
     - sensor.kbct_metar_altim_in_hg
     - sensor.kbct_metar_wind_dir_degrees
     - sensor.kbct_metar_wind_speed_kt
+    - sensor.kbct_metar_sky_cover
+    - sensor.kbct_metar_cloud_base_ft_agl
     - sensor.kbct_metar_flight_category
 
 climate_cameras:

@@ -36,7 +36,7 @@
     - hvac_state
 
 - platform: sql
-  db_url: mysql://hauser:hapass@mysql.home/ha
+  db_url: !secret mysql_db_url
   queries:
     - name: HA DB size
       query: 'SELECT table_schema "database", Round(((Sum(data_length + index_length) / 1024) / 1024), 1) "value" FROM information_schema.tables WHERE table_schema="ha" GROUP BY table_schema;'
@@ -81,6 +81,8 @@
   monitored_conditions:
     - alerts
     - temp_f
+    - dewpoint_f
+    - pressure_in
     - UV
     - wind_string
     - weather
