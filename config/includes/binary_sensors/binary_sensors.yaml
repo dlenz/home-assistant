@@ -11,3 +11,17 @@
     - is_using_emergency_heat
     - is_locked
     - has_leaf
+
+# Binary sensor for 1545 Internet
+- platform: ping
+  name: 1545_wan_status
+  host: google.com
+  count: 5
+  scan_interval: 300
+
+# Binary sensor for 489 Internet
+- platform: ping
+  name: 489_wan_status
+  host: kingsbridge489.asuscomm.com
+  count: 5
+  scan_interval: 300
