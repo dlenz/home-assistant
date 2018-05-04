@@ -10,6 +10,7 @@ system_monitor:
   entities:
     - group.ha
     - group.wan_health
+    - group.links
 ha:
   name: Home Assistant
   view: no
@@ -24,3 +25,14 @@ wan_health:
     - sensor.speedtest_download
     - sensor.speedtest_upload
     - sensor.speedtest_ping
+
+links:
+  name: Rosie
+  view: no
+  entities:
+    - weblink.portainer
+    - weblink.grafana
+    - weblink.nodered
+    - weblink.zoneminder
+    - weblink.mythweb
+    - weblink.cronograf_local_only

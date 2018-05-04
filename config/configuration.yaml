@@ -123,3 +123,4 @@ group: !include_dir_merge_named includes/groups
 panel_iframe: !include includes/panel_iframe.yaml
 sensor: !include_dir_merge_list includes/sensors
 zone: !include includes/zones.yaml
+weblink: !include includes/weblink.yaml
