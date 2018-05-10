@@ -20,8 +20,8 @@
   scan_interval: 60
 
 # Binary sensor for 489 Internet
-#- platform: ping
-#  name: 489_wan_status
-#  host: kingsbridge489.asuscomm.com
-#  count: 2
-#  scan_interval: 60
+- platform: ping
+  name: 489_wan_status
+  host: kingsbridge489.asuscomm.com
+  count: 2
+  scan_interval: 60
