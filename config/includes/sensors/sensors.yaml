@@ -51,10 +51,34 @@
     - hvac_state
 
 - platform: sql
-  db_url: !secret mysql_db_url
+  db_url: !secret mysql_db_url_ha
   queries:
     - name: HA DB size
       query: 'SELECT table_schema "database", Round(((Sum(data_length + index_length) / 1024) / 1024), 1) "value" FROM information_schema.tables WHERE table_schema="ha" GROUP BY table_schema;'
+      column: 'value'
+      unit_of_measurement: Mb
+
+- platform: sql
+  db_url: !secret mysql_db_url_mythtv
+  queries:
+    - name: MythTV DB size
+      query: 'SELECT table_schema "database", Round(((Sum(data_length + index_length) / 1024) / 1024), 1) "value" FROM information_schema.tables WHERE table_schema="mythconverg" GROUP BY table_schema;'
+      column: 'value'
+      unit_of_measurement: Mb
+
+- platform: sql
+  db_url: !secret kodi_db_url_mythtv
+  queries:
+    - name: Kodi DB size
+      query: 'SELECT table_schema "database", Round(((Sum(data_length + index_length) / 1024) / 1024), 1) "value" FROM information_schema.tables WHERE table_schema="videos107" GROUP BY table_schema;'
+      column: 'value'
+      unit_of_measurement: Mb
+
+- platform: sql
+  db_url: !secret zm_db_url_mythtv
+  queries:
+    - name: ZM DB size
+      query: 'SELECT table_schema "database", Round(((Sum(data_length + index_length) / 1024) / 1024), 1) "value" FROM information_schema.tables WHERE table_schema="zm" GROUP BY table_schema;'
       column: 'value'
       unit_of_measurement: Mb
 

@@ -16,7 +16,15 @@ ha:
   view: no
   entities:
     - sensor.ha_uptime
+
+mysql_dbs:
+  name: MySQL DBs
+  view: no
+  entities:
     - sensor.ha_db_size
+    - sensor.mythtv_db_size
+    - sensor.kodi_db_size
+    - sensor.zm_db_size
 
 wan_health:
   name: WAN Health
