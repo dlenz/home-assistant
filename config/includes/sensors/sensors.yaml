@@ -67,15 +67,15 @@
       unit_of_measurement: Mb
 
 - platform: sql
-  db_url: !secret kodi_db_url_mythtv
+  db_url: !secret mysql_db_url_kodi
   queries:
     - name: Kodi DB size
-      query: 'SELECT table_schema "database", Round(((Sum(data_length + index_length) / 1024) / 1024), 1) "value" FROM information_schema.tables WHERE table_schema="videos107" GROUP BY table_schema;'
+      query: 'SELECT table_schema "database", Round(((Sum(data_length + index_length) / 1024) / 1024), 1) "value" FROM information_schema.tables WHERE table_schema="MyVideos107" GROUP BY table_schema;'
       column: 'value'
       unit_of_measurement: Mb
 
 - platform: sql
-  db_url: !secret zm_db_url_mythtv
+  db_url: !secret mysql_db_url_zm
   queries:
     - name: ZM DB size
       query: 'SELECT table_schema "database", Round(((Sum(data_length + index_length) / 1024) / 1024), 1) "value" FROM information_schema.tables WHERE table_schema="zm" GROUP BY table_schema;'
@@ -97,7 +97,15 @@
       value_template: "{{ is_state_attr('climate.north_nest', 'away_mode', 'on') }}"
     south_nest_away_mode:
       value_template: "{{ is_state_attr('climate.south_nest', 'away_mode', 'on') }}"
-
+    sunrise:
+      value_template: "{{ states.sun.sun.attributes.next_rising.strftime('%H:%M') }}"
+    sunset:
+      value_template: "{{ states.sun.sun.attributes.next_rising.setting('%H:%M') }}"
+    solar_angle:
+      friendly_name: "Sun Angle"
+      unit_of_measurement: '°'
+      value_template: "{{ '%+.1f'|format(states.sun.sun.attributes.elevation) }}"
+      
 #- platform: google_travel_time
 #  api_key: !secret google_time_travel_api_key
 #  origin: !secret home_address
