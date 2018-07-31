@@ -9,6 +9,7 @@ system_monitor:
   icon: mdi:server-network
   entities:
     - group.ha
+    - group.mysql_dbs
     - group.wan_health
     - group.links
 ha:

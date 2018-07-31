@@ -14,6 +14,7 @@ default_view:
     - device_tracker.fluffy
     - device_tracker.maritzas_iphone
     - group.time
+    - group.almanac
     - group.arlo_base_station
     - group.1545_climate
     - group.489_climate
@@ -25,6 +26,17 @@ time:
     - sensor.zulu_time
     - sensor.est_time
     - sensor.pst_time
+
+almanac:
+  name: Almanac
+  view: no
+  entities:
+    - sensor.nextsunrise
+    - sensor.nextsunset
+    - sensor.solarangle
+    - sensor.moon
+    - sensor.dayofyear
+    - sensor.weekofyear
 
 arlo_base_station:
   name: Arlo
