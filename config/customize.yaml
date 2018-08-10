@@ -24,3 +24,5 @@ sensor.kbct_metar_wind_speed_kt:
   friendly_name: KBCT Wind Speed
 sensor.kbct_metar_wx_string:
   friendly_name: KBCT WX
+sensor.ha_db_size:
+  icon: mdi:database

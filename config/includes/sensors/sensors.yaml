@@ -42,6 +42,8 @@
   update_interval:
     minutes: 15
 
+- platform: moon
+
 - platform: nest
   monitored_conditions:
     - humidity
@@ -97,15 +99,28 @@
       value_template: "{{ is_state_attr('climate.north_nest', 'away_mode', 'on') }}"
     south_nest_away_mode:
       value_template: "{{ is_state_attr('climate.south_nest', 'away_mode', 'on') }}"
-    sunrise:
-      value_template: "{{ states.sun.sun.attributes.next_rising.strftime('%H:%M') }}"
-    sunset:
-      value_template: "{{ states.sun.sun.attributes.next_rising.setting('%H:%M') }}"
-    solar_angle:
+
+    solarangle:
       friendly_name: "Sun Angle"
       unit_of_measurement: '°'
       value_template: "{{ '%+.1f'|format(states.sun.sun.attributes.elevation) }}"
-      
+
+    nextsunrise:
+      friendly_name: 'Next Sunrise'
+      value_template: "{{ as_timestamp(states.sun.sun.attributes.next_rising) | timestamp_custom('%D %I:%M %p') }}"
+
+    nextsunset:
+      friendly_name: 'Next Sunset'
+      value_template: "{{ as_timestamp(states.sun.sun.attributes.next_setting) | timestamp_custom('%D %I:%M %p') }}"
+
+    dayofyear:
+      friendly_name: 'Day Number'
+      value_template: "{{ now().strftime('%j') }}"
+
+    weekofyear:
+      friendly_name: 'Week Number'
+      value_template: "{{ now().strftime('%U') }}"  
+
 #- platform: google_travel_time
 #  api_key: !secret google_time_travel_api_key
 #  origin: !secret home_address
